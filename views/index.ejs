@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Joke App</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/joke" method="get">
+            <div class="box">
+            <h2 class="box-label">Select category</h2>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="programming" name="category" value="programming" <%= selectedCategories.includes("programming") ? "checked" : "" %>>
+                    <label for="programming">Programming</label>
+                    <input type="checkbox" id="misc" name="category" value="misc" <%= selectedCategories.includes("misc") ? "checked" : "" %>>
+                    <label for="misc">Misc</label>
+                    <input type="checkbox" id="dark" name="category" value="dark" <%= selectedCategories.includes("dark") ? "checked" : "" %>>
+                    <label for="dark">Dark</label>
+                    <input type="checkbox" id="pun" name="category" value="pun" <%= selectedCategories.includes("pun") ? "checked" : "" %>>
+                    <label for="pun">Pun</label>
+                    <input type="checkbox" id="spooky" name="category" value="spooky" <%= selectedCategories.includes("spooky") ? "checked" : "" %>>
+                    <label for="spooky">Spooky</label>
+                    <input type="checkbox" id="christmas" name="category" value="christmas" <%= selectedCategories.includes("christmas") ? "checked" : "" %>>
+                    <label for="christmas">Christmas</label>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2 class="box-label">Select language</h2>
+                <div class="radio-row">
+                    <input type="radio" id="english" name="language" value="en" <%= selectedLanguage === "en" ? "checked" : "" %>>
+                    <label for="english">English</label>
+                    <input type="radio" id="german" name="language" value="de" <%= selectedLanguage === "de" ? "checked" : "" %>>
+                    <label for="german">German</label>
+                    <input type="radio" id="spanish" name="language" value="es" <%= selectedLanguage === "es" ? "checked" : "" %>>
+                    <label for="spanish">Spanish</label>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2 class="box-label">Select content to exclude</h2>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="nsfw" name="flag" value="nsfw" <%= selectedFlags.includes("nsfw") ? "checked" : "" %>>
+                    <label for="nsfw">nsfw</label>
+                    <input type="checkbox" id="religious" name="flag" value="religious" <%= selectedFlags.includes("religious") ? "checked" : "" %>>
+                    <label for="religious">religious</label>
+                    <input type="checkbox" id="political" name="flag" value="political" <%= selectedFlags.includes("political") ? "checked" : "" %>>
+                    <label for="political">political</label>
+                    <input type="checkbox" id="racist" name="flag" value="racist" <%= selectedFlags.includes("racist") ? "checked" : "" %>>
+                    <label for="racist">racist</label>
+                    <input type="checkbox" id="sexist" name="flag" value="sexist" <%= selectedFlags.includes("sexist") ? "checked" : "" %>>
+                    <label for="sexist">sexist</label>
+                    <input type="checkbox" id="explicit" name="flag" value="explicit" <%= selectedFlags.includes("explicit") ? "checked" : "" %>>
+                    <label for="explicit">explicit</label>
+                </div>
+            </div>
+
+            <button type="submit">Find a joke</button>
+        </form>
+                
+        <div class="box joke">
+            <% if (locals.joke) { %>
+            <p><%= joke %></p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
